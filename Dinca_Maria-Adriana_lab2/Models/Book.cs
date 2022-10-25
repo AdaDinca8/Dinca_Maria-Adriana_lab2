@@ -21,6 +21,7 @@ namespace Dinca_Maria_Adriana_lab2.Models
 
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
+
     }
 }
 
