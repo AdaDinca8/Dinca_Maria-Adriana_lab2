@@ -17,5 +17,7 @@ namespace Dinca_Maria_Adriana_lab2.Data
         public DbSet<Dinca_Maria_Adriana_lab2.Models.Book> Book { get; set; } = default!;
 
         public DbSet<Dinca_Maria_Adriana_lab2.Models.Publisher> Publisher { get; set; }
+
+        public DbSet<Dinca_Maria_Adriana_lab2.Models.Author> Author { get; set; }
     }
 }
