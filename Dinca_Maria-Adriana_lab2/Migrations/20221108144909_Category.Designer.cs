@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dinca_Maria_Adriana_lab2.Migrations
 {
     [DbContext(typeof(Dinca_Maria_Adriana_lab2Context))]
-    [Migration("20221102100036_INCERCARE")]
-    partial class INCERCARE
+    [Migration("20221108144909_Category")]
+    partial class Category
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,9 @@ namespace Dinca_Maria_Adriana_lab2.Migrations
                     b.Property<int?>("AuthorID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6,2)");
 
@@ -72,6 +75,8 @@ namespace Dinca_Maria_Adriana_lab2.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("AuthorID");
+
+                    b.HasIndex("CategoryID");
 
                     b.HasIndex("PublisherID");
 
@@ -141,6 +146,10 @@ namespace Dinca_Maria_Adriana_lab2.Migrations
                         .WithMany("Books")
                         .HasForeignKey("AuthorID");
 
+                    b.HasOne("Dinca_Maria_Adriana_lab2.Models.Category", null)
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryID");
+
                     b.HasOne("Dinca_Maria_Adriana_lab2.Models.Publisher", "Publisher")
                         .WithMany("Books")
                         .HasForeignKey("PublisherID");
@@ -182,6 +191,8 @@ namespace Dinca_Maria_Adriana_lab2.Migrations
             modelBuilder.Entity("Dinca_Maria_Adriana_lab2.Models.Category", b =>
                 {
                     b.Navigation("BookCategories");
+
+                    b.Navigation("Books");
                 });
 
             modelBuilder.Entity("Dinca_Maria_Adriana_lab2.Models.Publisher", b =>
