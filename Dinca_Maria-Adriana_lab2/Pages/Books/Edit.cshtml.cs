@@ -9,10 +9,13 @@ using Microsoft.EntityFrameworkCore;
 using Dinca_Maria_Adriana_lab2.Data;
 using Dinca_Maria_Adriana_lab2.Models;
 using Dinca_Maria_Adriana_lab2.Models;
-
+using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dinca_Maria_Adriana_lab2.Pages.Books
 {
+
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Dinca_Maria_Adriana_lab2.Data.Dinca_Maria_Adriana_lab2Context _context;
